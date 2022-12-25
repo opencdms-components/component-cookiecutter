@@ -50,7 +50,7 @@ def read(filename, encoding='utf-8'):
 
 def get_package_version():
     """get version from top-level package init"""
-    version_file = read('{{cookiecutter.process_id}}/__init__.py')
+    version_file = read('opencdms_{{plugin_name}}/__init__.py')
     version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
                               version_file, re.M)
     if version_match:
@@ -59,18 +59,18 @@ def get_package_version():
 
 
 KEYWORDS = [
-    {{cookiecutter.keywords}}
+    "component", "opencdms"
 ]
 
-DESCRIPTION = '{{cookiecutter.process_description}}'
+DESCRIPTION = '{{plugin_description}}'
 
 # ensure a fresh MANIFEST file is generated
-if (os.path.exists('MANIFEST')):
+if os.path.exists('MANIFEST'):
     os.unlink('MANIFEST')
 
 
 setup(
-    name='{{cookiecutter.process_id}}',
+    name='opencdms_{{plugin_name}}',
     version=get_package_version(),
     description=DESCRIPTION,
     long_description=read('README.md'),
@@ -78,19 +78,14 @@ setup(
     license='Apache Software License',
     platforms='all',
     keywords=' '.join(KEYWORDS),
-    author='{{cookiecutter.author}}',
-    author_email='{{cookiecutter.email}}',
-    maintainer='{{cookiecutter.maintainer}}',
-    maintainer_email='{{cookiecutter.maintainer_email}}',
-    url='{{cookiecutter.package_url}}',
+    author='OpenCDMS',
+    author_email='info@opencdms.org',
+    maintainer='OpenCDMS',
+    maintainer_email='info@opencdms.org',
+    url='',
     install_requires=read('requirements.txt').splitlines(),
     packages=find_packages(),
     include_package_data=True,
-    entry_points={
-        'console_scripts': [
-            'csv2bufr=csv2bufr.cli:cli'
-        ]
-    },
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Module',
@@ -102,5 +97,5 @@ setup(
         'Topic :: Scientific/Engineering',
     ],
     cmdclass={'test': PyTest},
-    test_suite='tests.run_tests'
+    test_suite='tests.run_tests',
 )
