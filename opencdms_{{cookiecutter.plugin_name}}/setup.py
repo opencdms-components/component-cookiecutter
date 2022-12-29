@@ -50,7 +50,7 @@ def read(filename, encoding='utf-8'):
 
 def get_package_version():
     """get version from top-level package init"""
-    version_file = read('opencdms_{{plugin_name}}/__init__.py')
+    version_file = read('opencdms_{{cookiecutter.plugin_name}}/__init__.py')
     version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
                               version_file, re.M)
     if version_match:
@@ -62,7 +62,7 @@ KEYWORDS = [
     "component", "opencdms"
 ]
 
-DESCRIPTION = '{{plugin_description}}'
+DESCRIPTION = '{{cookiecutter.plugin_description}}'
 
 # ensure a fresh MANIFEST file is generated
 if os.path.exists('MANIFEST'):
@@ -70,7 +70,7 @@ if os.path.exists('MANIFEST'):
 
 
 setup(
-    name='opencdms_{{plugin_name}}',
+    name='opencdms_{{cookiecutter.plugin_name}}',
     version=get_package_version(),
     description=DESCRIPTION,
     long_description=read('README.md'),
