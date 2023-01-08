@@ -1,0 +1,1 @@
+This directory should contain the UI components specific to the plugin.

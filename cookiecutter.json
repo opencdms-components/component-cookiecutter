@@ -7,6 +7,8 @@
   "process_id": "ID for process, imported as import process_id",
   "process_name": "Name of process class, process_id.process_name",
   "process_description": "Short description of process",
+  "plugin_name": "Name of the OpenCDMS Plugin",
+  "plugin_description": "Short description of the plugin.",
   "keywords": "",
   "license": "APL2"
 }
