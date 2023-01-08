@@ -10,5 +10,5 @@
   "plugin_name": "Name of the OpenCDMS Plugin",
   "plugin_description": "Short description of the plugin.",
   "keywords": "",
-  "license": "APL2"
+  "license": "MIT"
 }
